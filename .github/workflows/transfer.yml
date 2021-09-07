@@ -44,4 +44,4 @@ jobs:
 
       # 开始同步镜像
       - name: sync images
-        run: ./image-syncer --proc=20 --auth=./auth.yaml --images=./images.yaml --retries=3
+        run: ./image-syncer --registry ccr.ccs.tencentyun.com --proc=20 --auth=./auth.yaml --images=./images.yaml --retries=3
