@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Container Registry Transfer
 
 # Controls when the workflow will run
 on:
@@ -13,10 +13,15 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  IMAGE_SYNCER_VERSION: v1.3.0
+  TENCENTYUN_REGISTRY_USERNAME: ${{ secrets.TENCENTYUN_REGISTRY_USERNAME }}
+  DOCKERHUB_PASSWORD: ${{ secrets.TENCENTYUN_REGISTRY_PASSWORD }}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  transfer:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,12 +30,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # 安装 镜像同步工具
+      - name: install image-sync tool
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          curl -LO "https://github.com/AliyunContainerService/image-syncer/releases/download/${IMAGE_SYNCER_VERSION}/image-syncer-${IMAGE_SYNCER_VERSION}-linux-amd64.tar.gz"
+          tar -zxf image-syncer-${IMAGE_SYNCER_VERSION}-linux-amd64.tar.gz
+
+      # 初始化 认证配置文件
+      - name: init config.yaml with env
+        run: |
+          sed -i "s#USERNAME#${TENCENTYUN_REGISTRY_USERNAME}#g" auth.yaml
+          sed -i "s#PASSWORD#${TENCENTYUN_REGISTRY_PASSWORD}#g" auth.yaml
+
+      # 开始同步镜像
+      - name: sync images
+        run: ./image-syncer --proc=20 --auth=./auth.json --images=./images.json --retries=3

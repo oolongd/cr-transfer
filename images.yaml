@@ -1,0 +1,8 @@
+  # k8s.gcr.io/kube-apiserver: transfer-gcr/kube-apiserver
+  # k8s.gcr.io/kube-controller-manager: transfer-gcr/kube-controller-manager
+  # k8s.gcr.io/kube-scheduler: transfer-gcr/kube-scheduler
+  # k8s.gcr.io/kube-proxy: transfer-gcr/kube-proxy
+  # k8s.gcr.io/pause: transfer-gcr/pause
+  # k8s.gcr.io/etcd: transfer-gcr/etcd
+
+  gcr.io/k8s-artifacts-prod: transfer-gcr-k8s
