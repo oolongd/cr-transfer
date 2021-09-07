@@ -16,7 +16,7 @@ on:
 env:
   IMAGE_SYNCER_VERSION: v1.3.0
   TENCENTYUN_REGISTRY_USERNAME: ${{ secrets.TENCENTYUN_REGISTRY_USERNAME }}
-  DOCKERHUB_PASSWORD: ${{ secrets.TENCENTYUN_REGISTRY_PASSWORD }}
+  TENCENTYUN_REGISTRY_PASSWORD: ${{ secrets.TENCENTYUN_REGISTRY_PASSWORD }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,8 +39,8 @@ jobs:
       # 初始化 认证配置文件
       - name: init config.yaml with env
         run: |
-          sed -i "s#USERNAME#${TENCENTYUN_REGISTRY_USERNAME}#g" auth.yaml
-          sed -i "s#PASSWORD#${TENCENTYUN_REGISTRY_PASSWORD}#g" auth.yaml
+          sed -i "s#TENCENTYUN_REGISTRY_USERNAME#${TENCENTYUN_REGISTRY_USERNAME}#g" auth.yaml
+          sed -i "s#TENCENTYUN_REGISTRY_PASSWORD#${TENCENTYUN_REGISTRY_PASSWORD}#g" auth.yaml
 
       # 开始同步镜像
       - name: sync images
