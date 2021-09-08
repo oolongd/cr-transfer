@@ -1,9 +1,9 @@
-k8s.gcr.io/kube-apiserver: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-apiserver
-k8s.gcr.io/kube-controller-manager: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-controller-manager
-k8s.gcr.io/kube-scheduler: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-scheduler
-k8s.gcr.io/kube-proxy: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-proxy
-k8s.gcr.io/pause: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/pause
-k8s.gcr.io/etcd: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/etcd
+# k8s.gcr.io/kube-apiserver: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-apiserver
+# k8s.gcr.io/kube-controller-manager: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-controller-manager
+# k8s.gcr.io/kube-scheduler: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-scheduler
+# k8s.gcr.io/kube-proxy: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-proxy
+# k8s.gcr.io/pause: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/pause
+# k8s.gcr.io/etcd: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/etcd
 
 
-coredns/coredns: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/coredns
+k8s.gcr.io/coredns: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/coredns
