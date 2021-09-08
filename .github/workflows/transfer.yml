@@ -31,13 +31,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      - name: Cache image syncer records
-        uses: actions/cache@v2
-        with:
-          key: image-syncer
-          path: |
-            ~/.image-syncer/records
 
       # 安装 镜像同步工具
       - name: install image-sync tool
@@ -53,4 +46,4 @@ jobs:
 
       # 开始同步镜像
       - name: sync images
-        run: ./image-syncer --proc=20 --auth=./auth.yaml --images=./images.yaml --records=~/.image-syncer/records --retries=3
+        run: ./image-syncer --proc=20 --auth=./auth.yaml --images=./images.yaml --retries=3
