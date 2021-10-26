@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_SYNCER_VERSION: v1.3.0
+  IMAGE_SYNCER_VERSION: v1.3.1
   ALIYUN_REGISTRY_USERNAME: ${{ secrets.ALIYUN_REGISTRY_USERNAME }}
   ALIYUN_REGISTRY_PASSWORD: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
 
@@ -37,12 +37,6 @@ jobs:
         run: |
           curl -LO "https://github.com/AliyunContainerService/image-syncer/releases/download/${IMAGE_SYNCER_VERSION}/image-syncer-${IMAGE_SYNCER_VERSION}-linux-amd64.tar.gz"
           tar -zxf image-syncer-${IMAGE_SYNCER_VERSION}-linux-amd64.tar.gz
-
-      # 初始化 认证配置文件
-      - name: init config.yaml with env
-        run: |
-          sed -i "s#ALIYUN_REGISTRY_USERNAME#${ALIYUN_REGISTRY_USERNAME}#g" auth.yaml
-          sed -i "s#ALIYUN_REGISTRY_PASSWORD#${ALIYUN_REGISTRY_PASSWORD}#g" auth.yaml
 
       # 开始同步镜像
       - name: sync images
