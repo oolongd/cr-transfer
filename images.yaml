@@ -5,3 +5,4 @@ k8s.gcr.io/kube-proxy: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/kube-p
 k8s.gcr.io/pause: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/pause
 k8s.gcr.io/etcd: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/etcd
 k8s.gcr.io/coredns/coredns: registry.cn-hangzhou.aliyuncs.com/transfer-gcr-k8s/coredns
+ghcr.io/logto-io/logto: registry.cn-hangzhou.aliyuncs.com/transfer-cr/logto
